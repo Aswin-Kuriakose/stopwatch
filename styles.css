@@ -11,18 +11,17 @@ body {
     display: flex;
     text-align: center;
     justify-content: center;
-}
-.frame {
-    width: 400px;
-    height: 400px;
     background-color: rgb(36, 32, 32);
+}
+/* .frame {
     position: absolute;
     top:25%;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-}
+} */
+
 h2 {
     color: rgb(223, 12, 12);
     font-size: 30px;

@@ -16,37 +16,51 @@ startBttn.addEventListener("click", function startCount() {
 })
 function startCountDown() {
     tens++
-    if(tens <= 9){
-        appendTen.innerText = "0" + tens
-        appendSec.innerText =  sec 
-    }
-    else if (tens > 99){
+    appendTen.innerText = tens.toString().padStart(2, '0')
+    appendSec.innerText = sec.toString().padStart(2, '0')
+    if (tens > 99) {
         tens = "0"
         sec++
-        appendTen.innerText  = "0" + tens
-        appendSec.innerText = "0" +  sec
-        if (sec > 9){
+        appendTen.innerText = "0" + tens
+        appendSec.innerText = "0" + sec
+        if (sec > 9) {
             appendSec.innerText = sec
-        }else if (sec >= 60){
-            appendSec.innerText = "00"
+        } if (sec > 59) {
+            sec = 00
+            appendSec.innerText = sec
             mins++
             appendMins.innerText = "0" + mins
         }
+        if (mins > 59) {
+            mins = 00
+            appendMins.innerText = mins
+            hours++
+            appendHours.innerText = "0" + hours
+        }
+        if (hours < 9) {
+            appendHours.innerText = tens.toString().padStart(2, '0')
 
-    }else {
-        appendSec.innerText = sec 
-        appendTen.innerText = tens 
+        }
+        if (hours > 24) {
+            hours = 00
+            appendHours = hours
+        }
+
     }
+
 }
-resetBttn.addEventListener("click",function() {
-    interval = clearInterval
+resetBttn.addEventListener("click", function () {
+    clearInterval(interval)
     sec = "00"
     tens = "00"
+    mins = "00"
+    hours = "00"
     appendSec.innerText = sec
     appendTen.innerText = tens
+    appendMins.innerText = mins
+    appendHours.innerText = hours
 })
 stopBttn.addEventListener("click", function() {
-    interval = clearInterval
-    appendSec = sec
-    appendTen = tens
+    clearInterval(interval)
+    
 })
